@@ -9,7 +9,7 @@ supported features.
 Generate types for your Cloudflare bindings in `wrangler.toml`:
 
 ```sh
-npm run typegen
+pnpm run typegen
 ```
 
 You will need to rerun typegen whenever you make changes to `wrangler.toml`.
@@ -19,33 +19,32 @@ You will need to rerun typegen whenever you make changes to `wrangler.toml`.
 Run the Vite dev server:
 
 ```sh
-npm run dev
+pnpm run dev
 ```
 
 To run Wrangler:
 
 ```sh
-npm run build
-npm run start
+pnpm run build
+pnpm run start
 ```
 
 ## Deployment
 
-> [!WARNING]  
-> Cloudflare does _not_ use `wrangler.toml` to configure deployment bindings.
-> You **MUST** [configure deployment bindings manually in the Cloudflare
-> dashboard][bindings].
+> [!WARNING] Cloudflare does _not_ use `wrangler.toml` to configure deployment
+> bindings. You **MUST** [configure deployment bindings manually in the
+> Cloudflare dashboard][bindings].
 
 First, build your app for production:
 
 ```sh
-npm run build
+pnpm run build
 ```
 
 Then, deploy your app to Cloudflare Pages:
 
 ```sh
-npm run deploy
+pnpm run deploy
 ```
 
 [bindings]: https://developers.cloudflare.com/pages/functions/bindings/
