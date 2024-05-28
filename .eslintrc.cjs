@@ -71,6 +71,20 @@ module.exports = {
         'plugin:import/recommended',
         'plugin:import/typescript',
       ],
+      rules: {
+        'no-empty-pattern': 'off',
+        '@typescript-eslint/ban-types': 'warn',
+        '@typescript-eslint/no-unused-vars': 'warn',
+        '@typescript-eslint/consistent-type-imports': [
+          'warn',
+          {
+            prefer: 'type-imports',
+            disallowTypeAnnotations: true,
+            fixStyle: 'inline-type-imports',
+          },
+        ],
+        '@typescript-eslint/no-explicit-any': 'off',
+      },
     },
 
     // Node
