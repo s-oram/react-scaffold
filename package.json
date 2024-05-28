@@ -12,7 +12,8 @@
     "typecheck": "tsc",
     "typegen": "wrangler types",
     "preview": "pnpm run build && wrangler pages dev",
-    "cf-typegen": "wrangler types"
+    "cf-typegen": "wrangler types",
+    "format": "pnpm exec prettier --write ."
   },
   "dependencies": {
     "@remix-run/cloudflare": "^2.9.2",
@@ -36,6 +37,7 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "node-fetch": "^3.3.2",
+    "prettier": "3.2.5",
     "typescript": "^5.1.6",
     "vite": "^5.1.0",
     "vite-tsconfig-paths": "^4.2.1",
