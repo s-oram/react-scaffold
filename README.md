@@ -1,3 +1,19 @@
+# Seapunk Stack
+
+The Seapunk Stack is for creating landing page style websites deployed to
+Cloudflare Pages.
+
+## What's in the Template
+
+- [Remix](https://remix.run/docs) with
+  [Vite](https://remix.run/docs/en/main/guides/vite)
+- Deployment to Cloudflare via `pnpm run deploy` command
+- ESLint for linting
+- Prettier for code formatting
+- PNPM for package management
+- [remix-flat-routes](https://github.com/kiliman/remix-flat-routes) for
+  co-locating route files with components.
+
 # Welcome to Remix + Vite!
 
 📖 See the [Remix docs](https://remix.run/docs) and the
