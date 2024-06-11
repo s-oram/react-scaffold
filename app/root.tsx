@@ -1,3 +1,4 @@
+import { type LinksFunction } from '@remix-run/cloudflare'
 import {
   Links,
   Meta,
@@ -5,6 +6,11 @@ import {
   Scripts,
   ScrollRestoration,
 } from '@remix-run/react'
+import resetStyles from '~/styles/reset.css?url'
+
+export const links: LinksFunction = () => [
+  { rel: 'stylesheet', href: resetStyles },
+]
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
