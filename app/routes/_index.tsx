@@ -1,4 +1,8 @@
 import type { MetaFunction } from '@remix-run/cloudflare'
+import { InputField } from '~/components/ui/Form'
+import { ContentBlock } from '~/components/layout/ContentBlock'
+import { Section } from '~/components/layout/Section'
+import { Page } from '~/components/layout/Page'
 
 export const meta: MetaFunction = () => {
   return [
@@ -12,24 +16,16 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.8' }}>
-      <h1>Welcome to Remix (with Vite and Cloudflare)</h1>
-      <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://developers.cloudflare.com/pages/framework-guides/deploy-a-remix-site/"
-            rel="noreferrer"
-          >
-            Cloudflare Pages Docs - Remix guide
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
-      </ul>
-    </div>
+    <Page>
+      <Section>
+        <ContentBlock>
+          <InputField
+            label="Email"
+            placeholder="name@example.com"
+            description="Email address"
+          />
+        </ContentBlock>
+      </Section>
+    </Page>
   )
 }

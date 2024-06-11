@@ -5,9 +5,16 @@ import {
 import { defineConfig } from 'vite'
 import tsconfigPaths from 'vite-tsconfig-paths'
 import { flatRoutes } from 'remix-flat-routes'
+import wyw from '@wyw-in-js/vite'
 
 export default defineConfig({
   plugins: [
+    wyw({
+      include: ['app/**/*.{ts,tsx}'],
+      babelOptions: {
+        presets: ['@babel/preset-typescript', '@babel/preset-react'],
+      },
+    }),
     remixCloudflareDevProxy(),
     remix({
       future: {
