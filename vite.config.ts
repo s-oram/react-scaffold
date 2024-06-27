@@ -7,14 +7,17 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 import { flatRoutes } from 'remix-flat-routes'
 import wyw from '@wyw-in-js/vite'
 
+const linariaConfig = () =>
+  wyw({
+    include: ['app/**/*.{ts,tsx}'],
+    babelOptions: {
+      presets: ['@babel/preset-typescript', '@babel/preset-react'],
+    },
+  })
+
 export default defineConfig({
   plugins: [
-    wyw({
-      include: ['app/**/*.{ts,tsx}'],
-      babelOptions: {
-        presets: ['@babel/preset-typescript', '@babel/preset-react'],
-      },
-    }),
+    linariaConfig(),
     remixCloudflareDevProxy(),
     remix({
       future: {
