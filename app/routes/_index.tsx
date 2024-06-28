@@ -1,8 +1,8 @@
 import type { MetaFunction } from '@remix-run/cloudflare'
-import { InputField } from '~/components/ui/Form'
-import { ContentBlock } from '~/components/layout/ContentBlock'
-import { Section } from '~/components/layout/Section'
-import { Page } from '~/components/layout/Page'
+import { ContentBlock } from '~/components/ui/ContentBlock'
+import { Section } from '~/components/ui/Section'
+import { Page } from '~/components/ui/Page'
+import { TextField } from '~/components/ui/TextField'
 
 export const meta: MetaFunction = () => {
   return [
@@ -19,8 +19,9 @@ export default function Index() {
     <Page>
       <Section>
         <ContentBlock>
-          <InputField
-            label="Email"
+          <TextField
+            name="email"
+            primaryLabel="Email"
             placeholder="name@example.com"
             description="Email address"
           />

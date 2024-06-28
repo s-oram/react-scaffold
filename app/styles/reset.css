@@ -70,6 +70,18 @@
   }
 
   /*
+  1. Allow scroll on body element when using storybook
+  */
+  body:has(#storybook-root) {
+    overflow: auto; /* 1 */
+  }
+
+  #storybook-root {
+    min-height: 100%;
+    height: 100%;
+  }
+
+  /*
   1. Allow percentage-based heights in the application.
   2. Allow scrollbars here because we don't allow them on the body element.
   3. Create a root stacking context. This helps avoid z-index issues.

@@ -1,5 +1,5 @@
 import { type LinariaClassName } from '@linaria/core'
-import { cx, css } from '@linaria/atomic'
+import { cx, css } from '@linaria/core'
 
 const styles = {
   root: css`
