@@ -2,23 +2,16 @@ import { cx, css } from '@linaria/core'
 import { type ActionTone, type FeedbackTone } from './shared'
 import { token } from '~/styles/tokens'
 
-const rootStyle = css`
-  border-radius: 4px;
-
-  &[data-rounded='true'] {
-    border-radius: 100%;
-  }
-`
-
 // TODO[Shannon]: The `outline-color` property needs some work.
 // We are setting the opacity via appending a hex opacity string.
 // This only works because the color tokens are hex values.
 // Should we add a way to pass in a second argument that can be used to
 // set the opacity in a more expected manner.
-const focusRingStyle = css`
+export const focusRingStyle = css`
   outline-style: none;
   outline-width: 4px;
   outline-color: ${token('color-blue-500') + '88'};
+  outline-offset: 0;
 
   /* Focus styles for older browsers without :focus-visible support */
   &:has(:focus),
@@ -46,6 +39,14 @@ const focusRingStyle = css`
   &:invalid:not(:placeholder-shown),
   &[data-tone='error'] {
     outline-color: ${token('color-red-500') + '88'};
+  }
+`
+
+const rootStyle = css`
+  border-radius: 4px;
+
+  &[data-rounded='true'] {
+    border-radius: 100%;
   }
 `
 

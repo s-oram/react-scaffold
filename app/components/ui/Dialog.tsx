@@ -1,10 +1,10 @@
-import { css } from '@linaria/core'
+import { cx, css } from '@linaria/core'
 import { Button } from './Button'
 import { Heading } from './Heading'
 import { type ActionTone } from './_private/shared'
 import { token } from '~/styles/tokens'
 import { XIcon } from 'lucide-react'
-import { FocusRing } from './_private/FocusRing'
+import { focusRingStyle } from './_private/FocusRing'
 
 // Inspiration:
 // https://headlessui.com/react/dialog
@@ -37,14 +37,10 @@ const buttonRowStyle = css`
   gap: 8px;
 `
 
-const focusRingStyle = css`
+const closeButtonStyle = css`
   position: absolute;
   right: 8px;
   top: 8px;
-`
-
-const closeButtonStyle = css`
-  outline: none;
   padding: 8px;
   border-radius: 100%;
   &:hover {
@@ -79,16 +75,14 @@ export const Dialog = ({
   return (
     <div className={rootStyle}>
       <div className={panelStyle}>
-        <FocusRing className={focusRingStyle} rounded>
-          <button
-            className={closeButtonStyle}
-            onClick={() => {
-              if (onResult) onResult('escape')
-            }}
-          >
-            <XIcon />
-          </button>
-        </FocusRing>
+        <button
+          className={cx(focusRingStyle, closeButtonStyle)}
+          onClick={() => {
+            if (onResult) onResult('escape')
+          }}
+        >
+          <XIcon />
+        </button>
         {title && <Heading level="h2">{title}</Heading>}
         {description && <div className={descriptionStyle}>{description}</div>}
         {children && <div>{children}</div>}

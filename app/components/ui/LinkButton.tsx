@@ -1,11 +1,7 @@
-import { css } from '@linaria/core'
+import { cx } from '@linaria/core'
 import { buttonStyle } from './Button'
-import { FocusRing } from './_private/FocusRing'
+import { focusRingStyle } from './_private/FocusRing'
 import { type ActionTone } from './_private/shared'
-
-const focusRingStyle = css`
-  display: inline-block;
-`
 
 interface LinkButtonProps extends React.ComponentPropsWithoutRef<'a'> {
   children?: React.ReactNode
@@ -22,18 +18,16 @@ export const LinkButton = ({
   ...props
 }: LinkButtonProps) => {
   return (
-    <FocusRing className={focusRingStyle} data-tone={tone}>
-      <a
-        className={buttonStyle}
-        data-variant={variant}
-        data-tone={tone}
-        href={href}
-        tabIndex={0}
-        {...props}
-      >
-        {children}
-      </a>
-    </FocusRing>
+    <a
+      className={cx(focusRingStyle, buttonStyle)}
+      data-variant={variant}
+      data-tone={tone}
+      href={href}
+      tabIndex={0}
+      {...props}
+    >
+      {children}
+    </a>
   )
 }
 LinkButton.displayName = 'LinkButton'

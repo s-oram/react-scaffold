@@ -1,12 +1,12 @@
-import { css } from '@linaria/core'
+import { cx, css } from '@linaria/core'
 import { FieldDescription } from './_private/FieldDescription'
 import { FieldLabel } from './_private/FieldLabel'
 import { FieldMessage } from './_private/FieldMessage'
 import { type FeedbackTone } from './_private/shared'
 import { useId } from 'react'
-import { InputBorder } from './_private/InputBorder'
+import { InputBorder, inputBorderStyle } from './_private/InputBorder'
 import { token } from '~/styles/tokens'
-import { FocusRing } from './_private/FocusRing'
+import { FocusRing, focusRingStyle } from './_private/FocusRing'
 
 const rootStyle = css`
   display: flex;
@@ -16,7 +16,6 @@ const rootStyle = css`
 `
 
 const checkboxStyle = css`
-  outline: none;
   appearance: none;
   width: 24px;
   height: 24px;
@@ -24,7 +23,7 @@ const checkboxStyle = css`
   border-radius: 4px;
   &:checked {
     background-image: /* Lucide "check" icon */ url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoZWNrIj48cGF0aCBkPSJNMjAgNiA5IDE3bC01LTUiLz48L3N2Zz4=);
-    background-size: 24px 24px;
+    background-size: 22px 22px;
     background-repeat: no-repeat;
     background-position-y: 1px;
   }
@@ -63,18 +62,14 @@ export const Checkbox = ({
   const id = useId()
   return (
     <div className={rootStyle}>
-      <FocusRing tone={tone}>
-        <InputBorder tone={tone}>
-          <input
-            type={'checkbox'}
-            className={checkboxStyle}
-            id={id}
-            name={name}
-            data-tone={tone}
-            {...props}
-          />
-        </InputBorder>
-      </FocusRing>
+      <input
+        type={'checkbox'}
+        className={cx(focusRingStyle, inputBorderStyle, checkboxStyle)}
+        id={id}
+        name={name}
+        data-tone={tone}
+        {...props}
+      />
 
       <div>
         <div className={fieldLabelWraperStyle}>

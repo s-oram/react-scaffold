@@ -1,7 +1,7 @@
-import { css } from '@linaria/core'
+import { cx, css } from '@linaria/core'
 import { token } from '~/styles/tokens'
 import { useMap } from './_thirdparty/useMap'
-import { FocusRing } from './_private/FocusRing'
+import { focusRingStyle } from './_private/FocusRing'
 
 const rootStyle = css`
   display: flex;
@@ -31,14 +31,7 @@ const contentStyle = css`
   }
 `
 
-const focusRingStyle = css`
-  height: 32px;
-  width: 32px;
-  translate: 0 -2px;
-`
-
 const sectionToggleStyle = css`
-  outline: none;
   position: relative;
   height: 32px;
   width: 32px;
@@ -104,15 +97,14 @@ export const Accordion = ({ items }: AccordionFieldProps) => {
             >
               {item.label}
             </button>
-            <FocusRing className={focusRingStyle} rounded>
-              <button
-                className={sectionToggleStyle}
-                onClick={() => toggleContentVisibility(item.label)}
-                data-expanded={isExpandedMap.get(item.label) || false}
-              >
-                Toggle Accordion Section
-              </button>
-            </FocusRing>
+
+            <button
+              className={cx(focusRingStyle, sectionToggleStyle)}
+              onClick={() => toggleContentVisibility(item.label)}
+              data-expanded={isExpandedMap.get(item.label) || false}
+            >
+              Toggle Accordion Section
+            </button>
           </div>
           <div
             className={contentStyle}

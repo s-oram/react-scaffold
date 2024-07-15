@@ -2,7 +2,7 @@ import { css, cx } from '@linaria/core'
 import { token } from '~/styles/tokens'
 import { type FeedbackTone } from './shared'
 
-const rootStyle = css`
+export const inputBorderStyle = css`
   display: flex;
   flex-direction: row;
   border: 1px solid ${token('color-detail-500')};
@@ -29,7 +29,7 @@ export const InputBorder = ({
   className?: string
 }) => {
   return (
-    <div className={cx(rootStyle, className)} data-tone={tone}>
+    <div className={cx(inputBorderStyle, className)} data-tone={tone}>
       {children}
     </div>
   )

@@ -1,10 +1,9 @@
-import { css } from '@linaria/core'
+import { cx, css } from '@linaria/core'
 import { token } from '~/styles/tokens'
 import { type ActionTone } from './_private/shared'
-import { FocusRing } from './_private/FocusRing'
+import { focusRingStyle } from './_private/FocusRing'
 
 export const buttonStyle = css`
-  outline: none;
   display: inline-block;
   border-radius: 4px;
   padding: 8px 16px;
@@ -94,10 +93,6 @@ export const buttonStyle = css`
   }
 `
 
-const focusRingStyle = css`
-  display: inline-block;
-`
-
 interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
   children?: React.ReactNode
   variant?: 'solid' | 'outline' | 'soft' | 'ghost'
@@ -111,16 +106,14 @@ export const Button = ({
   ...props
 }: ButtonProps) => {
   return (
-    <FocusRing className={focusRingStyle} data-tone={tone}>
-      <button
-        className={buttonStyle}
-        data-variant={variant}
-        data-tone={tone}
-        {...props}
-      >
-        {children}
-      </button>
-    </FocusRing>
+    <button
+      className={cx(focusRingStyle, buttonStyle)}
+      data-variant={variant}
+      data-tone={tone}
+      {...props}
+    >
+      {children}
+    </button>
   )
 }
 Button.displayName = 'Button'
