@@ -5,6 +5,10 @@ import { PlaceholderContent } from './PlaceholderContent'
 const meta: Meta<typeof PlaceholderContent> = {
   title: 'Components/PlaceholderContent',
   component: PlaceholderContent,
+  parameters: {
+    layout: 'fullscreen',
+  },
+  tags: ['autodocs'],
   decorators: [
     Story => (
       <StoryBackground>

@@ -5,6 +5,10 @@ import { TextField } from './TextField'
 const meta: Meta<typeof TextField> = {
   title: 'Components/TextField',
   component: TextField,
+  parameters: {
+    layout: 'fullscreen',
+  },
+  tags: ['autodocs'],
   decorators: [
     Story => (
       <StoryBackground>

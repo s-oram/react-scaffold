@@ -8,9 +8,9 @@ const meta: Meta<typeof PageWidth> = {
   title: 'Layout/PageWidth',
   component: PageWidth,
   parameters: {
-    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout
     layout: 'fullscreen',
   },
+  tags: ['autodocs'],
   decorators: [
     Story => (
       <Page>

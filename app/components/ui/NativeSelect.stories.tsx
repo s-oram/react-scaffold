@@ -5,6 +5,10 @@ import { NativeSelect } from './NativeSelect'
 const meta: Meta<typeof NativeSelect> = {
   title: 'Components/NativeSelect',
   component: NativeSelect,
+  parameters: {
+    layout: 'fullscreen',
+  },
+  tags: ['autodocs'],
   decorators: [
     Story => (
       <StoryBackground>

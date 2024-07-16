@@ -6,6 +6,10 @@ import { PlaceholderContent } from './PlaceholderContent'
 const meta: Meta<typeof Accordion> = {
   title: 'Components/Accordion',
   component: Accordion,
+  parameters: {
+    layout: 'fullscreen',
+  },
+  tags: ['autodocs'],
   decorators: [
     Story => (
       <StoryBackground>

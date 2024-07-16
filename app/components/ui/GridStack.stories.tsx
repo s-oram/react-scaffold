@@ -3,8 +3,12 @@ import { StoryBackground } from './_private/StoryBackground'
 import { GridStack } from './GridStack'
 
 const meta: Meta<typeof GridStack> = {
-  title: 'Components/GridStack',
+  title: 'Layout/GridStack',
   component: GridStack,
+  parameters: {
+    layout: 'fullscreen',
+  },
+  tags: ['autodocs'],
   decorators: [
     Story => (
       <StoryBackground>

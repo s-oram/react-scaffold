@@ -5,6 +5,10 @@ import { Heading } from './Heading'
 const meta: Meta<typeof Heading> = {
   title: 'Components/Heading',
   component: Heading,
+  parameters: {
+    layout: 'fullscreen',
+  },
+  tags: ['autodocs'],
   decorators: [
     Story => (
       <StoryBackground>

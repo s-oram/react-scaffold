@@ -5,6 +5,10 @@ import { ContentBlock } from './ContentBlock'
 const meta: Meta<typeof ContentBlock> = {
   title: 'Layout/ContentBlock',
   component: ContentBlock,
+  parameters: {
+    layout: 'fullscreen',
+  },
+  tags: ['autodocs'],
   decorators: [
     Story => (
       <StoryBackground>

@@ -7,9 +7,9 @@ const meta: Meta<typeof Page> = {
   title: 'Layout/Page',
   component: Page,
   parameters: {
-    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout
     layout: 'fullscreen',
   },
+  tags: ['autodocs'],
   decorators: [Story => <Story />],
 }
 

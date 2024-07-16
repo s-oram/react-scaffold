@@ -5,6 +5,10 @@ import { Switch } from './Switch'
 const meta: Meta<typeof Switch> = {
   title: 'Components/Switch',
   component: Switch,
+  parameters: {
+    layout: 'fullscreen',
+  },
+  tags: ['autodocs'],
   decorators: [
     Story => (
       <StoryBackground>

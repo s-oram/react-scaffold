@@ -5,6 +5,10 @@ import { PasswordField } from './PasswordField'
 const meta: Meta<typeof PasswordField> = {
   title: 'Components/PasswordField',
   component: PasswordField,
+  parameters: {
+    layout: 'fullscreen',
+  },
+  tags: ['autodocs'],
   decorators: [
     Story => (
       <StoryBackground>

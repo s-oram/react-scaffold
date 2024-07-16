@@ -5,6 +5,11 @@ import { Button } from './Button'
 const meta: Meta<typeof Button> = {
   title: 'Components/Button',
   component: Button,
+  parameters: {
+    layout: 'fullscreen',
+  },
+  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
+  tags: ['autodocs'],
   decorators: [
     Story => (
       <StoryBackground>

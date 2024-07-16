@@ -5,6 +5,10 @@ import { LinkButton } from './LinkButton'
 const meta: Meta<typeof LinkButton> = {
   title: 'Components/LinkButton',
   component: LinkButton,
+  parameters: {
+    layout: 'fullscreen',
+  },
+  tags: ['autodocs'],
   decorators: [
     Story => (
       <StoryBackground>

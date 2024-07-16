@@ -22,12 +22,13 @@ const dottedBackground = css`
 `
 
 const rootStyle = css`
-  border-radius: 4px;
+  /* border-radius: 4px;
   border: 1px solid #ddd;
-  box-shadow: 0px 0px 8px 0px #dddddd99;
+  box-shadow: 0px 0px 8px 0px #dddddd99; */
   padding: 32px;
   overflow: hidden;
   position: relative;
+  min-height: 100%;
 `
 
 type StoryBackgroundProps = {

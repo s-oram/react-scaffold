@@ -8,6 +8,10 @@ import { ModalBackground } from './_private/ModalBackground'
 const meta: Meta<typeof Dialog> = {
   title: 'Components/Dialog',
   component: Dialog,
+  parameters: {
+    layout: 'fullscreen',
+  },
+  tags: ['autodocs'],
   decorators: [
     Story => {
       const [result, setResult] = useState<string>()

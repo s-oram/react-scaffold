@@ -5,6 +5,10 @@ import { StoryBackground } from './_private/StoryBackground'
 const meta: Meta<typeof TextAreaField> = {
   title: 'Components/TextAreaField',
   component: TextAreaField,
+  parameters: {
+    layout: 'fullscreen',
+  },
+  tags: ['autodocs'],
   decorators: [
     Story => (
       <StoryBackground>
