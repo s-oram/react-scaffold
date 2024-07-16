@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { StoryBackground } from './_private/StoryBackground'
-import { ContentBlock } from './ContentBlock'
+import { ContentWidth } from './ContentWidth'
 
-const meta: Meta<typeof ContentBlock> = {
-  title: 'Layout/ContentBlock',
-  component: ContentBlock,
+const meta: Meta<typeof ContentWidth> = {
+  title: 'Layout/ContentWidth',
+  component: ContentWidth,
   parameters: {
     layout: 'fullscreen',
   },
@@ -20,7 +20,7 @@ const meta: Meta<typeof ContentBlock> = {
 
 export default meta
 
-type Story = StoryObj<typeof ContentBlock>
+type Story = StoryObj<typeof ContentWidth>
 
 export const Primary: Story = {
   args: {},

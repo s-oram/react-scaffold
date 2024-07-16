@@ -1,32 +1,43 @@
 import { css } from '@linaria/core'
 import { useId, useState } from 'react'
-import { FieldDescription } from './_private/FieldDescription'
-import { FieldLabel } from './_private/FieldLabel'
-import { FieldMessage } from './_private/FieldMessage'
 import { FocusRing } from './_private/FocusRing'
 import { InputBorder } from './_private/InputBorder'
 import { type FeedbackTone } from './_private/shared'
+import { VerticalFormField } from './_private/VerticalFormField'
+import { token } from '~/styles/tokens'
 
-const rootStyle = css`
+const wrapperStyle = css`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: stretch;
 `
 
-const focusRingStyle = css`
-  margin-top: 4px;
-  margin-bottom: 4px;
-`
-
-const wrappedInputStyle = css`
+const inputStyle = css`
   flex-grow: 1;
   outline: none;
   border-radius: 4px;
   padding: 8px 12px;
 `
 
-// TODO[Shannon]: Consider removing focus styles by default.
 const buttonStyle = css`
   outline: none;
+  color: transparent;
+  width: 42px;
+  border-radius: 0 4px 4px 0;
+
+  &:focus-visible,
+  &:hover {
+    background-color: ${token('color-gray-100')};
+  }
+
+  background-image: ${token('icon-eye-off')};
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  &[data-password-visible='true'] {
+    background-image: ${token('icon-eye')};
+  }
 `
 
 type CustomProps = {
@@ -37,6 +48,7 @@ type CustomProps = {
   description?: string
   message?: string
   tone?: FeedbackTone
+  forgotPasswordHref?: string
 }
 
 type InheritedProps = Omit<
@@ -54,38 +66,42 @@ export const PasswordField = ({
   description,
   message,
   tone,
+
   ...props
 }: PasswordFieldProps) => {
   const id = useId()
   const [isPasswordVisible, setPasswordVisible] = useState(false)
+
   return (
-    <div className={rootStyle}>
-      <FieldLabel
-        htmlFor={id}
-        primaryLabel={primaryLabel}
-        secondaryLabel={secondaryLabel}
-        tertiaryLabel={tertiaryLabel}
-      />
-      {description && <FieldDescription>{description}</FieldDescription>}
-      <FocusRing className={focusRingStyle} data-tone={tone}>
-        <InputBorder data-tone={tone}>
+    <VerticalFormField
+      id={id}
+      primaryLabel={primaryLabel}
+      secondaryLabel={secondaryLabel}
+      tertiaryLabel={tertiaryLabel}
+      description={description}
+      message={message}
+      tone={tone}
+    >
+      <FocusRing data-tone={tone}>
+        <InputBorder data-tone={tone} className={wrapperStyle}>
           <input
             id={id}
             type={isPasswordVisible ? 'text' : 'password'}
-            className={wrappedInputStyle}
+            className={inputStyle}
             name={name}
             {...props}
           />
           <button
+            type="button"
             onClick={() => setPasswordVisible(!isPasswordVisible)}
             className={buttonStyle}
+            data-password-visible={isPasswordVisible}
           >
             {isPasswordVisible ? 'Show' : 'Hide'}
           </button>
         </InputBorder>
       </FocusRing>
-      {message && <FieldMessage tone={tone}>{message}</FieldMessage>}
-    </div>
+    </VerticalFormField>
   )
 }
 PasswordField.displayName = 'PasswordField'

@@ -4,9 +4,9 @@ import { FieldLabel } from './_private/FieldLabel'
 import { FieldMessage } from './_private/FieldMessage'
 import { type FeedbackTone } from './_private/shared'
 import { useId } from 'react'
-import { InputBorder, inputBorderStyle } from './_private/InputBorder'
+import { inputBorderStyle } from './_private/InputBorder'
 import { token } from '~/styles/tokens'
-import { FocusRing, focusRingStyle } from './_private/FocusRing'
+import { focusRingStyle } from './_private/FocusRing'
 
 const rootStyle = css`
   display: flex;
@@ -22,14 +22,14 @@ const checkboxStyle = css`
   background-color: ${token('color-white')};
   border-radius: 4px;
   &:checked {
-    background-image: /* Lucide "check" icon */ url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNoZWNrIj48cGF0aCBkPSJNMjAgNiA5IDE3bC01LTUiLz48L3N2Zz4=);
+    background-image: ${token('icon-check')};
     background-size: 22px 22px;
     background-repeat: no-repeat;
     background-position-y: 1px;
   }
 `
 
-const fieldLabelWraperStyle = css`
+const fieldLabelWrapperStyle = css`
   height: 24px;
   display: flex;
   flex-direction: column;
@@ -72,7 +72,7 @@ export const Checkbox = ({
       />
 
       <div>
-        <div className={fieldLabelWraperStyle}>
+        <div className={fieldLabelWrapperStyle}>
           <FieldLabel htmlFor={id} primaryLabel={label} />
         </div>
         {description && <FieldDescription>{description}</FieldDescription>}

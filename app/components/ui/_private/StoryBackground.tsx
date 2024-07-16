@@ -26,12 +26,22 @@ const rootStyle = css`
   border: 1px solid #ddd;
   box-shadow: 0px 0px 8px 0px #dddddd99; */
   padding: 32px;
+
   overflow: hidden;
   position: relative;
   min-height: 100%;
+
+  &[data-padding='true'] {
+    padding: 32px;
+  }
+
+  &[data-padding='false'] {
+    padding: 0px;
+  }
 `
 
 type StoryBackgroundProps = {
+  padding?: boolean
   children?: React.ReactNode
 }
 
@@ -43,9 +53,13 @@ export const StoryBackground2 = ({}: {}) => {
  * Provides a dotted background to show behind components in Storybook.
  */
 export const StoryBackground = forwardRef<HTMLDivElement, StoryBackgroundProps>(
-  ({ children }, ref) => {
+  ({ padding, children }, ref) => {
     return (
-      <div className={cx(dottedBackground, rootStyle)} ref={ref}>
+      <div
+        ref={ref}
+        className={cx(dottedBackground, rootStyle)}
+        data-padding={padding}
+      >
         {children}
       </div>
     )
