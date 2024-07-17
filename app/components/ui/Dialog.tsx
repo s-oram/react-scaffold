@@ -3,7 +3,6 @@ import { Button } from './Button'
 import { Heading } from './Heading'
 import { type ActionTone } from './_private/shared'
 import { token } from '~/styles/tokens'
-import { XIcon } from 'lucide-react'
 import { focusRingStyle } from './_private/FocusRing'
 
 // Inspiration:
@@ -39,10 +38,16 @@ const buttonRowStyle = css`
 
 const closeButtonStyle = css`
   position: absolute;
-  right: 8px;
-  top: 8px;
-  padding: 8px;
+  right: 4px;
+  top: 4px;
+  width: 40px;
+  height: 40px;
   border-radius: 100%;
+  background-image: ${token('icon-x')};
+  background-size: 24px 24px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  color: transparent;
   &:hover {
     background-color: ${token('color-gray-100')};
   }
@@ -81,7 +86,7 @@ export const Dialog = ({
             if (onResult) onResult('escape')
           }}
         >
-          <XIcon />
+          Close
         </button>
         {title && <Heading level="h2">{title}</Heading>}
         {description && <div className={descriptionStyle}>{description}</div>}
