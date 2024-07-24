@@ -5,10 +5,19 @@ const rootStyle = css`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  timeline-scope: --page-top-timeline;
 `
 
 const contentStyle = css`
   min-height: calc(100% - 16px); /* Push the footer below the fold */
+`
+
+const pageTopTimelineStyle = css`
+  view-timeline-name: --page-top-timeline;
+  height: 20px;
+  margin-bottom: -20px;
+  pointer-events: none;
+  visibility: hidden;
 `
 
 /**
@@ -27,6 +36,7 @@ export const Page = ({
   return (
     <div className={rootStyle}>
       <div className={contentStyle}>
+        <div className={pageTopTimelineStyle} />
         {header}
         {children}
       </div>

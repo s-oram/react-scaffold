@@ -18,6 +18,7 @@ const overlayStyle = css`
   &[data-active='true'] {
     background-color: #0004;
   }
+  z-index: ${token('z-index-500-modal-backdrop')};
 `
 
 const sidebarPanelStyle = css`
@@ -33,6 +34,7 @@ const sidebarPanelStyle = css`
   &[data-active='true'] {
     translate: 0 0;
   }
+  z-index: ${token('z-index-600-modal')};
 `
 
 const sidebarHeaderStyle = css`
